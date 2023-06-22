@@ -9,19 +9,38 @@ $earning-color: #cee0ff;
 
 // =============================================================
 
-$finance-colors: ($balance-color, $ref-earning-color, $sales-color, $earning-color);
-$finance-class: ("balance", "ref-earning", "sales", "earnings");
+// $finance-colors: ($balance-color, $ref-earning-color, $sales-color, $earning-color);
+// $finance-class: ("balance", "ref-earning", "sales", "earnings");
 
 // використаємо цикл для того щоб створити стилі для класів назви яких ми зберігаємо в масиві finance-class
-@for $i from 1 through 4 {
+// @for $i from 1 through 4 {
     // отримамуємо одне із значень масиву по його індексу
-    .#{nth($finance-class, $i)} {
+    // .#{nth($finance-class, $i)} {
+        // викликаючи міксин circle з файлу service.scss створюємо круглий елемент з розміром 50px
+        // @include service.circle(50);
+        // успадковуємо стилі класу .cost
+        // @extend .cost;
+        // отримамуємо одне із значень масиву по його індексу
+//         background-color: nth($finance-colors, $i);
+//     }
+// }
+
+// =============================================================
+
+$finance: ("balance" $balance-color, "ref-earning" $ref-earning-color, "sales" $sales-color, "earnings" $earning-color);
+
+$finance: ("balance": $balance-color, "ref-earning": $ref-earning-color, "sales": $sales-color, "earnings": $earning-color);
+
+// використаємо цикл для того щоб створити стилі для класів назви яких ми зберігаємо в масиві finance-class
+@each $class, $color in $finance {
+    // отримамуємо одне із значень масиву по його індексу
+    .#{$class} {
         // викликаючи міксин circle з файлу service.scss створюємо круглий елемент з розміром 50px
         @include service.circle(50);
         // успадковуємо стилі класу .cost
         @extend .cost;
         // отримамуємо одне із значень масиву по його індексу
-        background-color: nth($finance-colors, $i);
+        background-color: $color;
     }
 }
 

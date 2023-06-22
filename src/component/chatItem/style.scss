@@ -9,7 +9,7 @@ $rejected-color: #f64e60;
 // ========================================================
 
 // створюємо масив масивів в якому зберігаються назви класів та кольори chip елементів
-$chip-styles: ("rejected" $rejected-color, "approved" $approved-color, "pending" $pending-color);
+$chip-styles: ("rejected" $rejected-color 123, "approved" $approved-color 123, "pending" $pending-color 123);
 
 .chip {
     border-radius: 5px;
@@ -20,12 +20,13 @@ $chip-styles: ("rejected" $rejected-color, "approved" $approved-color, "pending"
 }
 
 // за допомогою each перебераемо наш масив масивів та задаємо стилі для chip елементів
-@each $class, $color in $chip-styles {
+@each $class, $color, $test in $chip-styles {
     .#{$class} {
         // успадковуємо стилі класу .chip
         @extend .chip;
         // використовуємо змінні
         background-color: $color;
+        color: #{$test};
     }
 }
 

@@ -7,14 +7,17 @@
 
 .rejected {
   background-color: #f64e60;
+  color: 123;
 }
 
 .approved {
   background-color: #0bb7af;
+  color: 123;
 }
 
 .pending {
   background-color: #2962ff;
+  color: 123;
 }
 
 .chat-item {
@@ -101,6 +104,11 @@
   color: #1e2a35;
 }
 
+@media all and (width < 600px) {
+  body {
+    background: red;
+  }
+}
 .wrapper {
   display: grid;
   margin: 32px auto;
